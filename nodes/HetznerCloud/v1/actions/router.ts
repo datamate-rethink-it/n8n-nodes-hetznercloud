@@ -1,6 +1,6 @@
 import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-workflow';
 
-import * as snapshot from './snapshot';
+import * as image from './image';
 import * as server from './server';
 
 import { HetznerCloud } from './Interfaces';
@@ -23,8 +23,8 @@ export async function router(this: IExecuteFunctions): Promise<INodeExecutionDat
 		} as HetznerCloud;
 
 		try {
-			if (hetzner.resource === 'snapshot') {
-				responseData = await snapshot[hetzner.operation].execute.call(this, i);
+			if (hetzner.resource === 'image') {
+				responseData = await image[hetzner.operation].execute.call(this, i);
 			} else if (hetzner.resource === 'server') {
 				responseData = await server[hetzner.operation].execute.call(this, i);
 			}

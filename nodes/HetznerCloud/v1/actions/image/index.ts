@@ -12,21 +12,21 @@ export const descriptions: INodeProperties[] = [
 		noDataExpression: true,
 		displayOptions: {
 			show: {
-				resource: ['snapshot'],
+				resource: ['image'],
 			},
 		},
 		options: [
 			{
 				name: 'Create',
 				value: 'create',
-				description: 'Create a new row',
-				action: 'Create a row',
+				description: 'Create a new image',
+				action: 'Create an image',
 			},
 			{
 				name: 'List',
 				value: 'list',
-				description: 'Get many rows from a table of view',
-				action: 'Get many rows',
+				description: 'Get all images, snapshots, backups, ...',
+				action: 'Get all images',
 			},
 		],
 		default: 'create',

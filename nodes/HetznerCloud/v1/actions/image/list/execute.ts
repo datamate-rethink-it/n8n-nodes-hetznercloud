@@ -7,11 +7,11 @@ export async function list(this: IExecuteFunctions, index: number): Promise<INod
 	const options: OptionsWithUri = {
 		method: 'GET',
 		qs: filters,
-		uri: `https://api.hetzner.cloud/v1/servers`,
+		uri: `https://api.hetzner.cloud/v1/images`,
 		json: true,
 	};
 
-	// console.log(options);
+	console.log(options);
 
 	const responseData = await this.helpers.requestWithAuthentication.call(
 		this,

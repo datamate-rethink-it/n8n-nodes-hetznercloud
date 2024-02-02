@@ -1,16 +1,16 @@
 import type { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
 
 type HetznerCloudMap = {
-	snapshot: 'create' | 'list';
+	image: 'create' | 'list';
 	server: 'list';
 };
 
 export type HetznerCloud = AllEntities<HetznerCloudMap>;
 
-export type HetznerCloudSnapshot = Entity<HetznerCloudMap, 'snapshot'>;
+export type HetznerCloudImage = Entity<HetznerCloudMap, 'image'>;
 export type HetznerCloudServer = Entity<HetznerCloudMap, 'server'>;
 
-export type SnapshotProperties = PropertiesOf<HetznerCloudSnapshot>;
+export type ImageProperties = PropertiesOf<HetznerCloudImage>;
 export type ServerProperties = PropertiesOf<HetznerCloudServer>;
 
 /*

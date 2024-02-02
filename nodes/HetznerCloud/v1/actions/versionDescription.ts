@@ -1,6 +1,6 @@
 import type { INodeTypeDescription } from 'n8n-workflow';
 
-import * as snapshot from './snapshot';
+import * as image from './image';
 import * as server from './server';
 
 export const versionDescription: INodeTypeDescription = {
@@ -30,8 +30,8 @@ export const versionDescription: INodeTypeDescription = {
 			noDataExpression: true,
 			options: [
 				{
-					name: 'Snapshot',
-					value: 'snapshot',
+					name: 'Image',
+					value: 'image',
 				},
 				{
 					name: 'Server',
@@ -40,7 +40,7 @@ export const versionDescription: INodeTypeDescription = {
 			],
 			default: 'server',
 		},
-		...snapshot.descriptions,
+		...image.descriptions,
 		...server.descriptions,
 	],
 };

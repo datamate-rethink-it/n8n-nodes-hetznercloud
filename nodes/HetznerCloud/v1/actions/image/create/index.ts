@@ -1,4 +1,4 @@
 import { create as execute } from './execute';
-import { snapshotCreateDescription as description } from './description';
+import { imageCreateDescription as description } from './description';
 
 export { description, execute };
