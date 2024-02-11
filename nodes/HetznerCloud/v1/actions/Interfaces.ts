@@ -3,187 +3,36 @@ import type { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
 type HetznerCloudMap = {
 	image: 'create' | 'list';
 	server: 'list';
+	primary_ip: 'list';
+	floating_ip: 'list';
+	firewall: 'list';
+	certificate: 'list';
+	loadbalancer: 'list';
+	network: 'list';
+	ssh: 'list';
+	volume: 'list';
 };
 
 export type HetznerCloud = AllEntities<HetznerCloudMap>;
 
 export type HetznerCloudImage = Entity<HetznerCloudMap, 'image'>;
 export type HetznerCloudServer = Entity<HetznerCloudMap, 'server'>;
+export type HetznerCloudPrimaryIP = Entity<HetznerCloudMap, 'primary_ip'>;
+export type HetznerCloudFloatingIP = Entity<HetznerCloudMap, 'floating_ip'>;
+export type HetznerCloudFirewall = Entity<HetznerCloudMap, 'firewall'>;
+export type HetznerCloudCertificate = Entity<HetznerCloudMap, 'certificate'>;
+export type HetznerCloudLoadbalancer = Entity<HetznerCloudMap, 'loadbalancer'>;
+export type HetznerCloudNetwork = Entity<HetznerCloudMap, 'network'>;
+export type HetznerCloudssh = Entity<HetznerCloudMap, 'ssh'>;
+export type HetznerCloudVolume = Entity<HetznerCloudMap, 'volume'>;
 
 export type ImageProperties = PropertiesOf<HetznerCloudImage>;
 export type ServerProperties = PropertiesOf<HetznerCloudServer>;
-
-/*
-import type {
-	TColumnType,
-	TColumnValue,
-	TDtableMetadataColumns,
-	TDtableMetadataTables,
-	TSeaTableServerEdition,
-	TSeaTableServerVersion,
-} from '../types';
-
-export interface IApi {
-	server: string;
-	token: string;
-	appAccessToken?: IAppAccessToken;
-	info?: IServerInfo;
-}
-
-export interface IServerInfo {
-	version: TSeaTableServerVersion;
-	edition: TSeaTableServerEdition;
-}
-
-export interface IAppAccessToken {
-	app_name: string;
-	access_token: string;
-	dtable_uuid: string;
-	dtable_server: string;
-	dtable_socket: string;
-	workspace_id: number;
-	dtable_name: string;
-}
-
-export interface IDtableMetadataColumn {
-	key: string;
-	name: string;
-	type: TColumnType;
-	editable?: boolean;
-}
-
-export interface TDtableViewColumn {
-	_id: string;
-	name: string;
-}
-
-export interface IDtableMetadataTable {
-	_id: string;
-	name: string;
-	columns: TDtableMetadataColumns;
-}
-
-export interface IDtableMetadata {
-	tables: TDtableMetadataTables;
-	version: string;
-	format_version: string;
-}
-
-export interface IEndpointVariables {
-	[name: string]: string | number | undefined;
-}
-
-export interface IRowObject {
-	[name: string]: TColumnValue | object;
-}
-
-export interface IRow extends IRowObject {
-	_id: string;
-	_ctime: string;
-	_mtime: string;
-	_seq?: number;
-}
-
-export interface IName {
-	name: string;
-}
-
-type TOperation = 'cloudHosted' | 'selfHosted';
-
-export interface ICredential {
-	token: string;
-	domain: string;
-	environment: TOperation;
-}
-
-interface IBase {
-	dtable_uuid: string;
-	access_token: string;
-	workspace_id: number;
-	dtable_name: string;
-}
-
-export interface ICtx {
-	base?: IBase;
-	credentials?: ICredential;
-}
-
-// response object of SQL-Query!
-export interface IRowResponse {
-	metadata: [
-		{
-			key: string;
-			name: string;
-			type: string;
-		},
-	];
-	results: IRow[];
-}
-
-// das ist bad
-export interface IRowResponse2 {
-	rows: IRow[];
-}
-
-// response object of SQL-Query!
-export interface ISqlQueryResult {
-	metadata: [
-		{
-			key: string;
-			name: string;
-		},
-	];
-	results: IRow[];
-}
-
-// response object of GetMetadata
-export interface IGetMetadataResult {
-	metadata: IDtableMetadata;
-}
-
-// response object of GetRows
-export interface IGetRowsResult {
-	rows: IRow[];
-}
-
-export interface ICollaboratorsResult {
-	user_list: ICollaborator[];
-}
-
-export interface ICollaborator {
-	email: string;
-	name: string;
-	contact_email: string;
-	avatar_url?: string;
-	id_in_org?: string;
-}
-
-export interface IColumnDigitalSignature {
-	username: string;
-	sign_image_url: string;
-	sign_time: string;
-	contact_email?: string;
-	name: string;
-}
-
-export interface IFile {
-	name: string;
-	size: number;
-	type: 'file';
-	url: string;
-	path?: string;
-}
-
-export interface ILinkData {
-	table_id: string;
-	other_table_id: string;
-	link_id: string;
-}
-
-export interface IUploadLink {
-	upload_link: string;
-	parent_path: string;
-	img_relative_path: string;
-	file_relative_path: string;
-}
-*/
+export type PrimaryIPProperties = PropertiesOf<HetznerCloudPrimaryIP>;
+export type FloatingIPProperties = PropertiesOf<HetznerCloudFloatingIP>;
+export type FirewallProperties = PropertiesOf<HetznerCloudFirewall>;
+export type CertificateProperties = PropertiesOf<HetznerCloudCertificate>;
+export type loadbalancerProperties = PropertiesOf<HetznerCloudLoadbalancer>;
+export type networkProperties = PropertiesOf<HetznerCloudNetwork>;
+export type sshProperties = PropertiesOf<HetznerCloudssh>;
+export type volumeProperties = PropertiesOf<HetznerCloudVolume>;

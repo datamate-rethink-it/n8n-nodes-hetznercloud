@@ -1,6 +1,6 @@
-import type { ServerProperties } from '../../Interfaces';
+import type { CertificateProperties } from '../../Interfaces';
 
-export const serverListDescription: ServerProperties = [
+export const listDescription: CertificateProperties = [
 	{
 		displayName: 'Filters',
 		name: 'filters',
@@ -9,7 +9,7 @@ export const serverListDescription: ServerProperties = [
 		default: {},
 		options: [
 			{
-				displayName: 'Server name',
+				displayName: 'Name',
 				name: 'name',
 				type: 'string',
 				placeholder: '',
@@ -29,51 +29,23 @@ export const serverListDescription: ServerProperties = [
 					'Can be used to filter resources by labels. The response will only contain resources matching the label selector.',
 			},
 			{
-				displayName: 'Status',
-				name: 'status',
+				displayName: 'Type',
+				name: 'type',
 				type: 'options',
 				options: [
 					{
-						name: 'initializing',
-						value: 'initializing',
+						name: 'uploaded',
+						value: 'uploaded',
 					},
 					{
-						name: 'starting',
-						value: 'starting',
-					},
-					{
-						name: 'running',
-						value: 'running',
-					},
-					{
-						name: 'stopping',
-						value: 'stopping',
-					},
-					{
-						name: 'off',
-						value: 'off',
-					},
-					{
-						name: 'deleting',
-						value: 'deleting',
-					},
-					{
-						name: 'rebuilding',
-						value: 'rebuilding',
-					},
-					{
-						name: 'migrating',
-						value: 'migrating',
-					},
-					{
-						name: 'unknown',
-						value: 'unknown',
+						name: 'managed',
+						value: 'managed',
 					},
 				],
-				placeholder: 'Select a status',
-				required: false,
 				default: '',
-				description: 'The response will only contain Server matching the status.',
+				required: false,
+				description:
+					'Can be used multiple times. The response will only contain Certificates matching the type.',
 			},
 			{
 				displayName: 'Sort by',
@@ -137,7 +109,7 @@ export const serverListDescription: ServerProperties = [
 		],
 		displayOptions: {
 			show: {
-				resource: ['server'],
+				resource: ['certificate'],
 				operation: ['list'],
 			},
 		},

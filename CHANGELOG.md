@@ -1,12 +1,12 @@
 # Changelog
 
-## v0.0.2 (2024-02-02)
+## v0.0.4 (2024-02-11)
 
-Finish the development of three basic functions:
+- Adding new List endpoints for Load Balancers and Certificates.
 
-- list servers (with filters)
-- list images
-- create image/snapshot of an existing server
+## v0.0.3 (2024-02-10)
+
+- Adding new List endpoints for Primary IPs, Floating IPs and Firewalls.
 
 ## v0.0.1 (2024-02-01)
 

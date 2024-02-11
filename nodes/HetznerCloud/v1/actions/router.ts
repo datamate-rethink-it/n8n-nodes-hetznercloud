@@ -2,6 +2,14 @@ import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-wor
 
 import * as image from './image';
 import * as server from './server';
+import * as primary_ip from './primary_ip';
+import * as floating_ip from './floating_ip';
+import * as firewall from './firewall';
+import * as certificate from './certificate';
+import * as loadbalancer from './loadbalancer';
+import * as network from './network';
+import * as ssh from './ssh';
+import * as volume from './volume';
 
 import { HetznerCloud } from './Interfaces';
 
@@ -27,6 +35,22 @@ export async function router(this: IExecuteFunctions): Promise<INodeExecutionDat
 				responseData = await image[hetzner.operation].execute.call(this, i);
 			} else if (hetzner.resource === 'server') {
 				responseData = await server[hetzner.operation].execute.call(this, i);
+			} else if (hetzner.resource === 'primary_ip') {
+				responseData = await primary_ip[hetzner.operation].execute.call(this, i);
+			} else if (hetzner.resource === 'floating_ip') {
+				responseData = await floating_ip[hetzner.operation].execute.call(this, i);
+			} else if (hetzner.resource === 'firewall') {
+				responseData = await firewall[hetzner.operation].execute.call(this, i);
+			} else if (hetzner.resource === 'certificate') {
+				responseData = await certificate[hetzner.operation].execute.call(this, i);
+			} else if (hetzner.resource === 'loadbalancer') {
+				responseData = await loadbalancer[hetzner.operation].execute.call(this, i);
+			} else if (hetzner.resource === 'network') {
+				responseData = await network[hetzner.operation].execute.call(this, i);
+			} else if (hetzner.resource === 'ssh') {
+				responseData = await ssh[hetzner.operation].execute.call(this, i);
+			} else if (hetzner.resource === 'volume') {
+				responseData = await volume[hetzner.operation].execute.call(this, i);
 			}
 
 			const executionData = this.helpers.constructExecutionMetaData(
