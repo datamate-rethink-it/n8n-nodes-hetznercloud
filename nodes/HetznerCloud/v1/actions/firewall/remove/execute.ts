@@ -1,13 +1,15 @@
 import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-workflow';
 import { OptionsWithUri } from 'request';
 
-export async function list(this: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
-	const filters = this.getNodeParameter('filters', index) as object;
+export async function remove(
+	this: IExecuteFunctions,
+	index: number,
+): Promise<INodeExecutionData[]> {
+	const id = this.getNodeParameter('id', index) as object;
 
 	const options: OptionsWithUri = {
-		method: 'GET',
-		qs: filters,
-		uri: 'https://api.hetzner.cloud/v1/ssh_keys/',
+		method: 'DELETE',
+		uri: 'https://api.hetzner.cloud/v1/firewalls/' + id,
 		json: true,
 	};
 

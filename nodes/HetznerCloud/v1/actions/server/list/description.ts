@@ -1,6 +1,6 @@
 import type { ServerProperties } from '../../Interfaces';
 
-export const serverListDescription: ServerProperties = [
+export const listDescription: ServerProperties = [
 	{
 		displayName: 'Filters',
 		name: 'filters',

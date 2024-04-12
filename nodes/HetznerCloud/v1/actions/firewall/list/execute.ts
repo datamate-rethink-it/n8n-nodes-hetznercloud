@@ -2,13 +2,11 @@ import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-wor
 import { OptionsWithUri } from 'request';
 
 export async function list(this: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
-	const name = this.getNodeParameter('name', index) as object;
+	const filters = this.getNodeParameter('filters', index) as object;
 
 	const options: OptionsWithUri = {
 		method: 'GET',
-		qs: {
-			name: name,
-		},
+		qs: filters,
 		uri: 'https://api.hetzner.cloud/v1/firewalls/',
 		json: true,
 	};

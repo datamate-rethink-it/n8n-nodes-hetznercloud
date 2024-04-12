@@ -1,4 +1,4 @@
 import { list as execute } from './execute';
-import { serverListDescription as description } from './description';
+import { listDescription as description } from './description';
 
 export { description, execute };

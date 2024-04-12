@@ -5,7 +5,7 @@ type HetznerCloudMap = {
 	server: 'list';
 	primary_ip: 'list';
 	floating_ip: 'list';
-	firewall: 'list';
+	firewall: 'list' | 'create' | 'remove';
 	certificate: 'list';
 	loadbalancer: 'list';
 	network: 'list';
@@ -36,3 +36,14 @@ export type loadbalancerProperties = PropertiesOf<HetznerCloudLoadbalancer>;
 export type networkProperties = PropertiesOf<HetznerCloudNetwork>;
 export type sshProperties = PropertiesOf<HetznerCloudssh>;
 export type volumeProperties = PropertiesOf<HetznerCloudVolume>;
+
+export interface rules {
+	rulesValues: {
+		protocol: string;
+		direction: string;
+		port?: string;
+		destination_ips?: string;
+		source_ips?: string;
+		description?: string;
+	};
+}
