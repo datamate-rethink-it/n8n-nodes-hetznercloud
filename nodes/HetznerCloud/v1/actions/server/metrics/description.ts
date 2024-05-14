@@ -37,7 +37,7 @@ export const metricsDescription: ServerProperties = [
 	{
 		displayName: 'Start Time-Date',
 		name: 'start_date',
-		type: 'string',
+		type: 'dateTime',
 		required: true,
 		placeholder: '2017-01-01T00:00:00+00:00',
 		displayOptions: {
@@ -52,7 +52,7 @@ export const metricsDescription: ServerProperties = [
 	{
 		displayName: 'End Time-Date',
 		name: 'end_date',
-		type: 'string',
+		type: 'dateTime',
 		required: true,
 		placeholder: '2017-01-01T00:00:00+00:00',
 		displayOptions: {
