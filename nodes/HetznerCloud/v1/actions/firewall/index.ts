@@ -1,9 +1,12 @@
 import * as list from './list';
 import * as create from './create';
 import * as remove from './remove';
+import * as get from './get';
+import * as update from './update';
+
 import type { INodeProperties } from 'n8n-workflow';
 
-export { list, create, remove };
+export { list, create, remove, get, update };
 
 export const descriptions: INodeProperties[] = [
 	{
@@ -35,10 +38,24 @@ export const descriptions: INodeProperties[] = [
 				description: 'Deletes a Firewall.',
 				action: 'Delete a Firewall',
 			},
+			{
+				name: 'Get',
+				value: 'get',
+				description: 'Gets a Firewall.',
+				action: 'Get a Firewall',
+			},
+			{
+				name: 'Update',
+				value: 'update',
+				description: 'Updates a Firewall.',
+				action: 'Update a Firewall',
+			},
 		],
 		default: 'list',
 	},
 	...list.description,
 	...create.description,
 	...remove.description,
+	...get.description,
+	...update.description,
 ];

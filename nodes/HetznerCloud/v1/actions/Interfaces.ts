@@ -5,7 +5,7 @@ type HetznerCloudMap = {
 	server: 'list' | 'get' | 'metrics';
 	primary_ip: 'list';
 	floating_ip: 'list';
-	firewall: 'list' | 'create' | 'remove';
+	firewall: 'list' | 'create' | 'remove' | 'update' | 'get';
 	certificate: 'list';
 	loadbalancer: 'list';
 	network: 'list';
