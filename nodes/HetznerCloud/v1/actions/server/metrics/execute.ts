@@ -11,6 +11,7 @@ export async function metrics(
 	const end = this.getNodeParameter('end_date', index) as string;
 	const step = this.getNodeParameter('time_step', index) as string;
 	const uri: string = `https://api.hetzner.cloud/v1/servers/` + id + `/metrics`;
+
 	const options: OptionsWithUri = {
 		method: 'GET',
 		qs: { type: metric, start: start, end: end, step: step },
