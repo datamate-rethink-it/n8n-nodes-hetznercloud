@@ -2,13 +2,18 @@ import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-wor
 import { OptionsWithUri } from 'request';
 
 export async function get(this: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
-	const id: number = this.getNodeParameter('id', index) as number;
+	const id = this.getNodeParameter('id', index) as number;
+	const uri: string = `https://api.hetzner.cloud/v1/servers/` + id;
+
 	const options: OptionsWithUri = {
 		method: 'GET',
 		qs: '',
-		uri: `https://api.hetzner.cloud/v1/servers/` + id,
+		uri: uri,
 		json: true,
 	};
+
+	console.log(options);
+
 	const responseData = await this.helpers.requestWithAuthentication.call(
 		this,
 		'hetznercloud',

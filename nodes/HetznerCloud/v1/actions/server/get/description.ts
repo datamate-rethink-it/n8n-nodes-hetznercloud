@@ -1,22 +1,19 @@
 import type { ServerProperties } from '../../Interfaces';
 
-export const listDescription: ServerProperties = [
+export const getDescription: ServerProperties = [
 	{
-		displayName: 'Get Server',
-		name: 'get',
-		type: 'collection',
-		placeholder: 'Add Field',
-		default: {},
-		options: [
-			{
-				displayName: 'Server Id',
-				name: 'id',
-				type: 'number',
-				placeholder: '',
-				required: false,
-				default: '',
-				description: 'Returns a specific Server object. The Server must exist inside the Project',
+		displayName: 'Server Id',
+		name: 'id',
+		type: 'number',
+		required: true,
+		placeholder: '3918671',
+		displayOptions: {
+			show: {
+				resource: ['server'],
+				operation: ['get'],
 			},
-		],
+		},
+		default: '1',
+		description: 'The Id Of the Server in the project',
 	},
 ];
