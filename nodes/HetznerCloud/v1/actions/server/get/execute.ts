@@ -3,11 +3,12 @@ import { OptionsWithUri } from 'request';
 
 export async function get(this: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
 	const id = this.getNodeParameter('id', index) as number;
+
 	const uri: string = `https://api.hetzner.cloud/v1/servers/` + id;
 
 	const options: OptionsWithUri = {
 		method: 'GET',
-		qs: '',
+		qs: {},
 		uri: uri,
 		json: true,
 	};

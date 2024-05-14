@@ -2,7 +2,7 @@ import type { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
 
 type HetznerCloudMap = {
 	image: 'create' | 'list';
-	server: 'list' | 'get';
+	server: 'list' | 'get' | 'metrics';
 	primary_ip: 'list';
 	floating_ip: 'list';
 	firewall: 'list' | 'create' | 'remove';
