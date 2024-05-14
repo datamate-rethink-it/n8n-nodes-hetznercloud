@@ -2,14 +2,11 @@ import type { FirewallProperties } from '../../Interfaces';
 
 export const updateDescription: FirewallProperties = [
 	{
-		displayName: 'Server',
+		displayName: 'Firewall Id',
 		name: 'id',
-		type: 'options',
-		placeholder: 'Select a server',
+		type: 'number',
+		placeholder: 'Select a Firewall',
 		required: true,
-		typeOptions: {
-			loadOptionsMethod: 'getServers',
-		},
 		displayOptions: {
 			show: {
 				resource: ['firewall'],
