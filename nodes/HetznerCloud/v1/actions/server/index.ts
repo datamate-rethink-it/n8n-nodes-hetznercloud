@@ -3,10 +3,10 @@ import * as get from './get';
 import * as metrics from './metrics';
 import * as remove from './remove'; // delete is a reserved keyword ...
 import * as create from './create';
-
+import * as update from './update';
 import type { INodeProperties } from 'n8n-workflow';
 
-export { list, get, metrics, remove, create };
+export { list, get, metrics, remove, create, update };
 
 export const descriptions: INodeProperties[] = [
 	{
@@ -50,6 +50,12 @@ export const descriptions: INodeProperties[] = [
 				description: 'Deletes a Server with given ID',
 				action: 'Delete a Server with given ID',
 			},
+			{
+				name: 'Update Server',
+				value: 'update',
+				description: 'Updates a Servers Labels and Name',
+				action: 'Update a Server',
+			},
 		],
 		default: 'list',
 	},
@@ -58,4 +64,5 @@ export const descriptions: INodeProperties[] = [
 	...metrics.description,
 	...remove.description,
 	...create.description,
+	...update.description,
 ];

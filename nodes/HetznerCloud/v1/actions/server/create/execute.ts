@@ -1,15 +1,6 @@
 import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-workflow';
 import { OptionsWithUri } from 'request';
-
-// takes in an array of {key:string,value:any} objects
-// mainly for creating the
-function createDynamicObject(objects: { key: string; value: any }[]): { [key: string]: any } {
-	const dynamicObject: { [key: string]: any } = {};
-	for (const e of objects) {
-		dynamicObject[e.key] = e.value;
-	}
-	return dynamicObject;
-}
+import { createDynamicObject } from '../../Utils';
 
 export async function create(
 	this: IExecuteFunctions,
