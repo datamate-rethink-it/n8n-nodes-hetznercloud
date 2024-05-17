@@ -46,7 +46,7 @@ export const descriptions: INodeProperties[] = [
 			},
 			{
 				name: 'Delete Server',
-				value: 'deleteServer',
+				value: 'remove',
 				description: 'Deletes a Server with given ID',
 				action: 'Delete a Server with given ID',
 			},

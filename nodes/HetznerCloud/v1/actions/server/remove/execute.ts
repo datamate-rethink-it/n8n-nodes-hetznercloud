@@ -5,8 +5,7 @@ export async function remove(
 	this: IExecuteFunctions,
 	index: number,
 ): Promise<INodeExecutionData[]> {
-	const id = this.getNodeParameter('id', index) as number;
-
+	const id = this.getNodeParameter('id', index) as object;
 	const uri: string = `https://api.hetzner.cloud/v1/servers/` + id;
 
 	const options: OptionsWithUri = {
