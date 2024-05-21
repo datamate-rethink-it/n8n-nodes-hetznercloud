@@ -17,6 +17,6 @@ export const removeDescription: ServerProperties = [
 			},
 		},
 		default: '',
-		description: 'The Id Of the Server in the project',
+		description: 'The Id Of the Server in the project to delete',
 	},
 ];
