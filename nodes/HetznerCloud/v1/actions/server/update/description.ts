@@ -17,7 +17,7 @@ export const updateDescription: ServerProperties = [
 			},
 		},
 		default: '',
-		description: 'The Id Of the Server to remove',
+		description: 'The Id Of the Server to update',
 	},
 	{
 		displayName: 'labels',

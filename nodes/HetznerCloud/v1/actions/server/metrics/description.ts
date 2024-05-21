@@ -4,7 +4,7 @@ export const metricsDescription: ServerProperties = [
 	{
 		displayName: 'Server Id',
 		name: 'id',
-		type: 'number',
+		type: 'options',
 		required: true,
 		placeholder: '3918671',
 		displayOptions: {

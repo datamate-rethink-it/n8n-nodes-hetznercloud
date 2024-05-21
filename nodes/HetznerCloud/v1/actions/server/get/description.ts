@@ -13,7 +13,7 @@ export const getDescription: ServerProperties = [
 				operation: ['get'],
 			},
 		},
-		default: '1',
-		description: 'The Id Of the Server in the project',
+		default: '',
+		description: 'The Id Of the Server in the project to get',
 	},
 ];

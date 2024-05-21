@@ -70,7 +70,7 @@ export const createDescription: ServerProperties = [
 		displayName: 'image',
 		name: 'image',
 		type: 'string',
-		required: false,
+		required: true,
 		placeholder: '',
 		displayOptions: {
 			show: {
@@ -141,7 +141,7 @@ export const createDescription: ServerProperties = [
 		displayName: 'name',
 		name: 'name',
 		type: 'string',
-		required: false,
+		required: true,
 		placeholder: '',
 		displayOptions: {
 			show: {
@@ -264,7 +264,7 @@ export const createDescription: ServerProperties = [
 		displayName: 'server_type',
 		name: 'server_type',
 		type: 'string',
-		required: false,
+		required: true,
 		placeholder: '',
 		displayOptions: {
 			show: {

@@ -8,7 +8,7 @@ export const getDescription: FirewallProperties = [
 		placeholder: '',
 		required: true,
 		default: '',
-		description: 'Gets Server Information with Id',
+		description: 'Gets Firewall Information with Id',
 		displayOptions: {
 			show: {
 				resource: ['firewall'],
