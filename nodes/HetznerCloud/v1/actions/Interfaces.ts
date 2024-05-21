@@ -11,6 +11,7 @@ type HetznerCloudMap = {
 	network: 'list';
 	ssh: 'list';
 	volume: 'list';
+	server_actions: 'power_off' | 'power_on' | 'soft_reboot' | 'shutdown' | 'reset';
 };
 
 export type HetznerCloud = AllEntities<HetznerCloudMap>;
@@ -25,6 +26,7 @@ export type HetznerCloudLoadbalancer = Entity<HetznerCloudMap, 'loadbalancer'>;
 export type HetznerCloudNetwork = Entity<HetznerCloudMap, 'network'>;
 export type HetznerCloudssh = Entity<HetznerCloudMap, 'ssh'>;
 export type HetznerCloudVolume = Entity<HetznerCloudMap, 'volume'>;
+export type HetznerCloudServerActions = Entity<HetznerCloudMap, 'server_actions'>;
 
 export type ImageProperties = PropertiesOf<HetznerCloudImage>;
 export type ServerProperties = PropertiesOf<HetznerCloudServer>;
@@ -36,6 +38,7 @@ export type loadbalancerProperties = PropertiesOf<HetznerCloudLoadbalancer>;
 export type networkProperties = PropertiesOf<HetznerCloudNetwork>;
 export type sshProperties = PropertiesOf<HetznerCloudssh>;
 export type volumeProperties = PropertiesOf<HetznerCloudVolume>;
+export type ServerActionsProperties = PropertiesOf<HetznerCloudServerActions>;
 
 export interface rules {
 	rulesValues: {

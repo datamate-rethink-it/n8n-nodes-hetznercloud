@@ -10,6 +10,7 @@ import * as loadbalancer from './loadbalancer';
 import * as network from './network';
 import * as ssh from './ssh';
 import * as volume from './volume';
+import * as server_actions from './server_actions';
 
 export const versionDescription: INodeTypeDescription = {
 	displayName: 'HetznerCloud',
@@ -77,6 +78,10 @@ export const versionDescription: INodeTypeDescription = {
 					name: 'Volume',
 					value: 'volume',
 				},
+				{
+					name: 'Server Actions',
+					value: 'server_actions',
+				},
 			],
 			default: 'server',
 		},
@@ -90,5 +95,6 @@ export const versionDescription: INodeTypeDescription = {
 		...network.descriptions,
 		...ssh.descriptions,
 		...volume.descriptions,
+		...server_actions.descriptions,
 	],
 };
