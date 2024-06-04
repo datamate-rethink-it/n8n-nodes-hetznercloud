@@ -1,6 +1,6 @@
 import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-workflow';
 import { OptionsWithUri } from 'request';
-import { createDynamicObject } from '../../Utils';
+import { createDynamicObject } from '../../../Utils';
 
 export async function create(
 	this: IExecuteFunctions,

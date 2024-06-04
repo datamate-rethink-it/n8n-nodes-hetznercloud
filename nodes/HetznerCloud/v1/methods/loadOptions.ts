@@ -1,6 +1,6 @@
 import type { ILoadOptionsFunctions, INodePropertyOptions } from 'n8n-workflow';
 import { OptionsWithUri } from 'request';
-import { helpPaginate } from '../actions/Utils';
+import { helpPaginate } from '../Utils';
 
 //import { getTableColumns, seaTableApiRequest, updateAble } from '../GenericFunctions';
 //import type { IRow } from '../actions/Interfaces';
