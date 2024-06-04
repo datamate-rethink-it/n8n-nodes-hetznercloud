@@ -1,4 +1,4 @@
-import type { ILoadOptionsFunctions } from 'n8n-workflow';
+import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-workflow';
 import { OptionsWithUri } from 'request';
 
 /*
@@ -20,13 +20,19 @@ export function createDynamicObject(objects: { key: string; value: any }[]): {
 	return dynamicObject;
 }
 
-// recursively calls itself incrementing page till last_page reached and then returns an Array of all the received data
 /* 
+This Function recursively calls itself incrementing page till last_page reached and then returns an Array of all the received data
+
 data is the actual data returned by the api from options, the data gets recursively appended
-arraymergekey: specifies which key is array that should be appended to data
+arraymergekey specifies which key is array that should be appended to data 
+	example: when calling firewalls api {"firewalls":[...]} is returned, arraymergekey would be "firewalls"
+credentialsType is just the credentials name in n8
+
+instance can be  ILoadOptions for loadOptions.ts
+instance can also be IExecuteFunctions for the normal actions like: list firewall
 */
 export async function helpPaginate(
-	instance: ILoadOptionsFunctions,
+	instance: ILoadOptionsFunctions | IExecuteFunctions,
 	credentialsType: string,
 	options: OptionsWithUri,
 	data: any[],
@@ -37,17 +43,16 @@ export async function helpPaginate(
 		credentialsType,
 		options,
 	);
-
 	if (options.qs.page === null) {
 		options.qs.page = 1;
 	}
-	console.log(options.qs.page);
+	//console.log(options.qs.page);
 	if (!result[arraymergekey]) {
-		console.log(arraymergekey + 'does not exist on result');
+		//console.log(arraymergekey + 'does not exist on result');
 		return Promise.resolve(data);
 	}
 	if (!result.meta.pagination) {
-		console.log('no meta Pagination');
+		//	console.log('no Pagination');
 		return Promise.resolve(data);
 	}
 
@@ -55,7 +60,7 @@ export async function helpPaginate(
 		result.meta.pagination.page >= result.meta.pagination.last_page ||
 		result.meta.pagination.next_page === null
 	) {
-		console.log('last page', result.meta.pagination.last_page);
+		//	console.log('last page', result.meta.pagination.last_page);
 		data = data.concat(result[arraymergekey]);
 		return Promise.resolve(data);
 	} else {

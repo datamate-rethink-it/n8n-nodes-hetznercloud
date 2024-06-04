@@ -4,9 +4,12 @@ export const updateDescription: FirewallProperties = [
 	{
 		displayName: 'Firewall Id',
 		name: 'id',
-		type: 'number',
+		type: 'options',
 		placeholder: 'Select a Firewall',
 		required: true,
+		typeOptions: {
+			loadOptionsMethod: 'getFirewalls',
+		},
 		displayOptions: {
 			show: {
 				resource: ['firewall'],
