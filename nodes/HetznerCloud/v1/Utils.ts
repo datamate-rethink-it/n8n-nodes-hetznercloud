@@ -1,6 +1,5 @@
 import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-workflow';
 import { OptionsWithUri } from 'request';
-
 /*
 // takes in an array of {key:string,value:any} objects and converts them to
 someObject:{
@@ -31,6 +30,8 @@ credentialsType is just the credentials name in n8
 instance can be  ILoadOptions for loadOptions.ts
 instance can also be IExecuteFunctions for the normal actions like: list firewall
 */
+
+//const timeout = 2000; // 2 seconds timeout
 export async function helpPaginate(
 	instance: ILoadOptionsFunctions | IExecuteFunctions,
 	credentialsType: string,
@@ -38,34 +39,40 @@ export async function helpPaginate(
 	data: any[],
 	arraymergekey: string,
 ): Promise<any[]> {
-	let result = await instance.helpers.requestWithAuthentication.call(
-		instance,
-		credentialsType,
-		options,
-	);
-	if (options.qs.page === null) {
-		options.qs.page = 1;
-	}
-	//console.log(options.qs.page);
-	if (!result[arraymergekey]) {
-		//console.log(arraymergekey + 'does not exist on result');
-		return Promise.resolve(data);
-	}
-	if (!result.meta.pagination) {
-		//	console.log('no Pagination');
-		return Promise.resolve(data);
-	}
+	try {
+		let result = await instance.helpers.requestWithAuthentication.call(
+			instance,
+			credentialsType,
+			options,
+		);
+		console.log(result);
+		if (options.qs.page === null) {
+			options.qs.page = 1;
+		}
+		//console.log(options.qs.page);
+		if (!result[arraymergekey]) {
+			//console.log(arraymergekey + 'does not exist on result');
+			return Promise.resolve(data);
+		}
+		if (!result.meta.pagination) {
+			//	console.log('no Pagination');
+			return Promise.resolve(data);
+		}
 
-	if (
-		result.meta.pagination.page >= result.meta.pagination.last_page ||
-		result.meta.pagination.next_page === null
-	) {
-		//	console.log('last page', result.meta.pagination.last_page);
-		data = data.concat(result[arraymergekey]);
+		if (
+			result.meta.pagination.page >= result.meta.pagination.last_page ||
+			result.meta.pagination.next_page === null
+		) {
+			//	console.log('last page', result.meta.pagination.last_page);
+			data = data.concat(result[arraymergekey]);
+			return Promise.resolve(data);
+		} else {
+			data = data.concat(result[arraymergekey]);
+			options.qs.page = result.meta.pagination.next_page;
+			return helpPaginate(instance, credentialsType, options, data, arraymergekey);
+		}
+	} catch (error) {
+		console.log(error);
 		return Promise.resolve(data);
-	} else {
-		data = data.concat(result[arraymergekey]);
-		options.qs.page = result.meta.pagination.next_page;
-		return helpPaginate(instance, credentialsType, options, data, arraymergekey);
 	}
 }

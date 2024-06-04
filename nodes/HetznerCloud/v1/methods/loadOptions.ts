@@ -13,15 +13,9 @@ export async function getServers(this: ILoadOptionsFunctions): Promise<INodeProp
 		uri: `https://api.hetzner.cloud/v1/servers`,
 		json: true,
 	};
-
-	const serverlist = await this.helpers.requestWithAuthentication.call(
-		this,
-		'hetznercloud',
-		options,
-	);
-
-	if (serverlist.servers) {
-		for (const server of serverlist.servers) {
+	let results = await helpPaginate(this, 'hetznercloud', options, new Array<any>(), 'servers');
+	if (results) {
+		for (const server of results) {
 			returnData.push({
 				name: server.name,
 				value: server.id,
@@ -85,12 +79,6 @@ export async function getImages(this: ILoadOptionsFunctions): Promise<INodePrope
 		uri: `https://api.hetzner.cloud/v1/images`,
 		json: true,
 	};
-	/*
-	const imagelist = await this.helpers.requestWithAuthentication.call(
-		this,
-		'hetznercloud',
-		options,
-	);*/
 	let results = await helpPaginate(this, 'hetznercloud', options, new Array<any>(), 'images');
 	console.log('Pagination size: ', results.length);
 	if (results) {
