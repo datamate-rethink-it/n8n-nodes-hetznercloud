@@ -32,6 +32,7 @@ export async function getFirewalls(this: ILoadOptionsFunctions): Promise<INodePr
 		qs: {},
 		uri: `https://api.hetzner.cloud/v1/firewalls`,
 		json: true,
+		timeout: 2000,
 	};
 	let results = await helpPaginate(this, 'hetznercloud', options, new Array<any>(), 'firewalls');
 	if (results) {
@@ -52,6 +53,7 @@ export async function getServertypes(this: ILoadOptionsFunctions): Promise<INode
 		qs: {},
 		uri: `https://api.hetzner.cloud/v1/server_types`,
 		json: true,
+		timeout: 2000,
 	};
 
 	const servertypelist = await this.helpers.requestWithAuthentication.call(
