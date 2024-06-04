@@ -49,7 +49,11 @@ export const createDescription: ServerProperties = [
 					{
 						displayName: 'Firewall ID',
 						name: 'firewall',
-						type: 'number',
+						type: 'options',
+						placeholder: 'Select a firewall',
+						typeOptions: {
+							loadOptionsMethod: 'getFirewalls',
+						},
 						default: '',
 						description: 'ID of the Firewall.',
 					},
@@ -263,9 +267,12 @@ export const createDescription: ServerProperties = [
 	{
 		displayName: 'server_type',
 		name: 'server_type',
-		type: 'string',
+		type: 'options',
 		required: true,
-		placeholder: '',
+		placeholder: 'Select a Server-Type',
+		typeOptions: {
+			loadOptionsMethod: 'getServertypes',
+		},
 		displayOptions: {
 			show: {
 				resource: ['server'],

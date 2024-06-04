@@ -82,6 +82,32 @@ export async function getServertypes(this: ILoadOptionsFunctions): Promise<INode
 	return returnData;
 }
 
+export async function getImages(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const returnData: INodePropertyOptions[] = [];
+	const options: OptionsWithUri = {
+		method: 'GET',
+		qs: {},
+		uri: `https://api.hetzner.cloud/v1/images`,
+		json: true,
+	};
+
+	const imagelist = await this.helpers.requestWithAuthentication.call(
+		this,
+		'hetznercloud',
+		options,
+	);
+
+	if (imagelist.images) {
+		for (const image of imagelist.images) {
+			returnData.push({
+				name: image.description,
+				value: image.name,
+			});
+		}
+	}
+	return returnData;
+}
+
 /*
 export async function getTableNames(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	const returnData: INodePropertyOptions[] = [];
