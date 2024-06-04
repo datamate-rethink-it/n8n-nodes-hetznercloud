@@ -1,3 +1,6 @@
+import type { ILoadOptionsFunctions } from 'n8n-workflow';
+import { OptionsWithUri } from 'request';
+
 /*
 // takes in an array of {key:string,value:any} objects and converts them to
 someObject:{
@@ -15,4 +18,49 @@ export function createDynamicObject(objects: { key: string; value: any }[]): {
 		dynamicObject[e.key] = e.value;
 	}
 	return dynamicObject;
+}
+
+// recursively calls itself incrementing page till last_page reached and then returns an Array of all the received data
+/* 
+data is the actual data returned by the api from options, the data gets recursively appended
+arraymergekey: specifies which key is array that should be appended to data
+*/
+export async function helpPaginate(
+	instance: ILoadOptionsFunctions,
+	credentialsType: string,
+	options: OptionsWithUri,
+	data: any[],
+	arraymergekey: string,
+): Promise<any[]> {
+	let result = await instance.helpers.requestWithAuthentication.call(
+		instance,
+		credentialsType,
+		options,
+	);
+
+	if (options.qs.page === null) {
+		options.qs.page = 1;
+	}
+	console.log(options.qs.page);
+	if (!result[arraymergekey]) {
+		console.log(arraymergekey + 'does not exist on result');
+		return Promise.resolve(data);
+	}
+	if (!result.meta.pagination) {
+		console.log('no meta Pagination');
+		return Promise.resolve(data);
+	}
+
+	if (
+		result.meta.pagination.page >= result.meta.pagination.last_page ||
+		result.meta.pagination.next_page === null
+	) {
+		console.log('last page', result.meta.pagination.last_page);
+		data = data.concat(result[arraymergekey]);
+		return Promise.resolve(data);
+	} else {
+		data = data.concat(result[arraymergekey]);
+		options.qs.page = result.meta.pagination.next_page;
+		return helpPaginate(instance, credentialsType, options, data, arraymergekey);
+	}
 }

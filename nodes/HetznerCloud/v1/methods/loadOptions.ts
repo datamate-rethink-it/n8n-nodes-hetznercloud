@@ -1,5 +1,6 @@
 import type { ILoadOptionsFunctions, INodePropertyOptions } from 'n8n-workflow';
 import { OptionsWithUri } from 'request';
+import { helpPaginate } from '../actions/Utils';
 
 //import { getTableColumns, seaTableApiRequest, updateAble } from '../GenericFunctions';
 //import type { IRow } from '../actions/Interfaces';
@@ -38,15 +39,9 @@ export async function getFirewalls(this: ILoadOptionsFunctions): Promise<INodePr
 		uri: `https://api.hetzner.cloud/v1/firewalls`,
 		json: true,
 	};
-
-	const firewalllist = await this.helpers.requestWithAuthentication.call(
-		this,
-		'hetznercloud',
-		options,
-	);
-
-	if (firewalllist.firewalls) {
-		for (const firewall of firewalllist.firewalls) {
+	let results = await helpPaginate(this, 'hetznercloud', options, new Array<any>(), 'firewalls');
+	if (results) {
+		for (const firewall of results) {
 			returnData.push({
 				name: firewall.name,
 				value: firewall.id,
@@ -84,21 +79,22 @@ export async function getServertypes(this: ILoadOptionsFunctions): Promise<INode
 
 export async function getImages(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	const returnData: INodePropertyOptions[] = [];
-	const options: OptionsWithUri = {
+	let options: OptionsWithUri = {
 		method: 'GET',
 		qs: {},
 		uri: `https://api.hetzner.cloud/v1/images`,
 		json: true,
 	};
-
+	/*
 	const imagelist = await this.helpers.requestWithAuthentication.call(
 		this,
 		'hetznercloud',
 		options,
-	);
-
-	if (imagelist.images) {
-		for (const image of imagelist.images) {
+	);*/
+	let results = await helpPaginate(this, 'hetznercloud', options, new Array<any>(), 'images');
+	console.log('Pagination size: ', results.length);
+	if (results) {
+		for (const image of results) {
 			returnData.push({
 				name: image.description,
 				value: image.name,

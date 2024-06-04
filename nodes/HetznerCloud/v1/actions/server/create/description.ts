@@ -73,9 +73,12 @@ export const createDescription: ServerProperties = [
 	{
 		displayName: 'image',
 		name: 'image',
-		type: 'string',
+		type: 'options',
 		required: true,
-		placeholder: '',
+		placeholder: 'Select an Image',
+		typeOptions: {
+			loadOptionsMethod: 'getImages',
+		},
 		displayOptions: {
 			show: {
 				resource: ['server'],
