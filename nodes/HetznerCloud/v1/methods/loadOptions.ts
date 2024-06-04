@@ -30,6 +30,58 @@ export async function getServers(this: ILoadOptionsFunctions): Promise<INodeProp
 	return returnData;
 }
 
+export async function getFirewalls(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const returnData: INodePropertyOptions[] = [];
+	const options: OptionsWithUri = {
+		method: 'GET',
+		qs: {},
+		uri: `https://api.hetzner.cloud/v1/firewalls`,
+		json: true,
+	};
+
+	const firewalllist = await this.helpers.requestWithAuthentication.call(
+		this,
+		'hetznercloud',
+		options,
+	);
+
+	if (firewalllist.firewalls) {
+		for (const firewall of firewalllist.firewalls) {
+			returnData.push({
+				name: firewall.name,
+				value: firewall.id,
+			});
+		}
+	}
+	return returnData;
+}
+
+export async function getServertypes(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const returnData: INodePropertyOptions[] = [];
+	const options: OptionsWithUri = {
+		method: 'GET',
+		qs: {},
+		uri: `https://api.hetzner.cloud/v1/server_types`,
+		json: true,
+	};
+
+	const servertypelist = await this.helpers.requestWithAuthentication.call(
+		this,
+		'hetznercloud',
+		options,
+	);
+
+	if (servertypelist.server_types) {
+		for (const servertype of servertypelist.server_types) {
+			returnData.push({
+				name: servertype.description,
+				value: servertype.name,
+			});
+		}
+	}
+	return returnData;
+}
+
 /*
 export async function getTableNames(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	const returnData: INodePropertyOptions[] = [];

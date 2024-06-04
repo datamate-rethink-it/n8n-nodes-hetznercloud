@@ -4,15 +4,19 @@ export const removeDescription: FirewallProperties = [
 	{
 		displayName: 'ID',
 		name: 'id',
-		type: 'string',
+		type: 'options',
 		default: '',
 		required: true,
+		placeholder: 'Select a firewall',
+		typeOptions: {
+			loadOptionsMethod: 'getFirewalls',
+		},
 		displayOptions: {
 			show: {
 				resource: ['firewall'],
 				operation: ['remove'],
 			},
 		},
-		description: 'ID of the resource.',
+		description: 'ID of the resource',
 	},
 ];
