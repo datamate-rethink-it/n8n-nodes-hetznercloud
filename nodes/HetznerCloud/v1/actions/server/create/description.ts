@@ -19,7 +19,7 @@ export const createDescription: ServerProperties = [
 	{
 		displayName: 'datacenter',
 		name: 'datacenter',
-		type: 'string',
+		type: 'options',
 		required: false,
 		placeholder: '',
 		displayOptions: {
@@ -27,6 +27,9 @@ export const createDescription: ServerProperties = [
 				resource: ['server'],
 				operation: ['create'],
 			},
+		},
+		typeOptions: {
+			loadOptionsMethod: 'getDatacenters',
 		},
 		default: '',
 		description:
@@ -302,9 +305,12 @@ export const createDescription: ServerProperties = [
 					{
 						displayName: 'SSH ID',
 						name: 'value',
-						type: 'string',
+						type: 'options',
 						default: '',
-						description: 'ID of the Network.',
+						description: 'ID of the SSH Key.',
+						typeOptions: {
+							loadOptionsMethod: 'getSshkeys',
+						},
 					},
 				],
 			},
@@ -368,9 +374,12 @@ export const createDescription: ServerProperties = [
 					{
 						displayName: 'Volume ID',
 						name: 'value',
-						type: 'number',
+						type: 'options',
 						default: 0,
 						description: 'ID of the Volume.',
+						typeOptions: {
+							loadOptionsMethod: 'getVolumes',
+						},
 					},
 				],
 			},

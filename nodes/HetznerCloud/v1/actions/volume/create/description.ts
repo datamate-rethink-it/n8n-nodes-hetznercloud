@@ -103,10 +103,13 @@ export const createDescription: volumeProperties = [
 	{
 		displayName: 'Location',
 		name: 'location',
-		type: 'string',
+		type: 'options',
 		required: false,
 		default: null,
 		description: 'Location to create the Volume in (can be omitted if Server is specified)',
+		typeOptions: {
+			loadOptionsMethod: 'getLocations',
+		},
 		displayOptions: {
 			show: {
 				resource: ['volume'],
@@ -117,11 +120,14 @@ export const createDescription: volumeProperties = [
 	{
 		displayName: 'Server',
 		name: 'server',
-		type: 'number',
+		type: 'options',
 		required: false,
 		default: null,
 		description:
 			"Server to which to attach the Volume once it's created (Volume will be created in the same Location as the server)",
+		typeOptions: {
+			loadOptionsMethod: 'getServers',
+		},
 		displayOptions: {
 			show: {
 				resource: ['volume'],
