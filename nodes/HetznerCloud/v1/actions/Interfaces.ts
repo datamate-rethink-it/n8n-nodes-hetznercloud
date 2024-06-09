@@ -10,7 +10,7 @@ type HetznerCloudMap = {
 	loadbalancer: 'list';
 	network: 'list';
 	ssh: 'list';
-	volume: 'list';
+	volume: 'list' | 'create' | 'remove';
 	server_actions: 'power_off' | 'power_on' | 'soft_reboot' | 'shutdown' | 'reset';
 };
 

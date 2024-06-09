@@ -94,6 +94,27 @@ export async function getImages(this: ILoadOptionsFunctions): Promise<INodePrope
 	return returnData;
 }
 
+export async function getVolumes(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const returnData: INodePropertyOptions[] = [];
+	let options: OptionsWithUri = {
+		method: 'GET',
+		qs: {},
+		uri: `https://api.hetzner.cloud/v1/volumes`,
+		json: true,
+	};
+	let results = await helpPaginate(this, 'hetznercloud', options, new Array<any>(), 'volumes');
+	//	console.log('Pagination size: ', results.length);
+	if (results) {
+		for (const volume of results) {
+			returnData.push({
+				name: volume.name,
+				value: volume.id,
+			});
+		}
+	}
+	return returnData;
+}
+
 /*
 export async function getTableNames(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	const returnData: INodePropertyOptions[] = [];
