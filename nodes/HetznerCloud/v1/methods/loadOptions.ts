@@ -114,7 +114,28 @@ export async function getVolumes(this: ILoadOptionsFunctions): Promise<INodeProp
 	}
 	return returnData;
 }
+// https://api.hetzner.cloud/v1/datacenters
 
+export async function getDatacenters(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const returnData: INodePropertyOptions[] = [];
+	let options: OptionsWithUri = {
+		method: 'GET',
+		qs: {},
+		uri: `https://api.hetzner.cloud/v1/datacenters`,
+		json: true,
+	};
+	let results = await helpPaginate(this, 'hetznercloud', options, new Array<any>(), 'datacenters');
+	//	console.log('Pagination size: ', results.length);
+	if (results) {
+		for (const datacenter of results) {
+			returnData.push({
+				name: datacenter.description,
+				value: datacenter.name,
+			});
+		}
+	}
+	return returnData;
+}
 /*
 export async function getTableNames(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	const returnData: INodePropertyOptions[] = [];

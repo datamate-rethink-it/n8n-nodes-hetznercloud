@@ -7,7 +7,7 @@ export const getDescription: volumeProperties = [
 		type: 'options',
 		required: false,
 		default: null,
-		description: 'ID of Volume to delete',
+		description: 'ID of Volume to get',
 		displayOptions: {
 			show: {
 				resource: ['volume'],
