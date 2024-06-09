@@ -1,9 +1,10 @@
 import * as list from './list';
 import * as create from './create';
 import * as remove from './remove';
+import * as get from './get';
 
 import type { INodeProperties } from 'n8n-workflow';
-export { list, create, remove };
+export { list, create, remove, get };
 
 export const descriptions: INodeProperties[] = [
 	{
@@ -36,10 +37,17 @@ export const descriptions: INodeProperties[] = [
 				description: 'removes Volume by ID',
 				action: 'remove Volume by ID',
 			},
+			{
+				name: 'Get',
+				value: 'get',
+				description: 'gets Volume by ID',
+				action: 'get Volume by ID',
+			},
 		],
 		default: 'list',
 	},
 	...list.description,
 	...create.description,
 	...remove.description,
+	...get.description,
 ];
