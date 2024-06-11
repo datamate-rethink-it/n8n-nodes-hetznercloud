@@ -17,6 +17,6 @@ export const removeDescription: FirewallProperties = [
 				operation: ['remove'],
 			},
 		},
-		description: 'ID of the resource',
+		description: 'ID of the Firewall to remove',
 	},
 ];

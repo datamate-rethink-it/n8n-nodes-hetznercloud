@@ -17,7 +17,7 @@ export const updateDescription: FirewallProperties = [
 			},
 		},
 		default: '',
-		description: '...',
+		description: 'id of the firewall to update',
 	},
 	{
 		displayName: 'Name',
