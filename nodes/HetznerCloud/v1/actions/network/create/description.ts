@@ -46,98 +46,43 @@ export const createDescription: networkProperties = [
 		description: 'Name of the Network',
 	},
 	{
-		displayName: 'Filters',
-		name: 'filters',
-		type: 'collection',
-		placeholder: 'Add Field',
-		default: {},
+		displayName: 'Labels',
+		name: 'labels',
+		type: 'fixedCollection',
+		typeOptions: {
+			multipleValues: true,
+		},
 		options: [
 			{
-				displayName: 'Name',
-				name: 'name',
-				type: 'string',
-				placeholder: '',
-				required: false,
-				default: '',
-				description:
-					'Can be used to filter resources by their name. The response will only contain the resources matching the specified name.',
-			},
-			{
-				displayName: 'Label',
-				name: 'label_selector',
-				type: 'string',
-				placeholder: '',
-				required: false,
-				default: '',
-				description:
-					'Can be used to filter resources by labels. The response will only contain resources matching the label selector.',
-			},
-			{
-				displayName: 'Sort by',
-				name: 'sort',
-				type: 'options',
-				options: [
+				name: 'labelsValues',
+				displayName: 'Labels',
+				values: [
 					{
-						name: 'id (asc)',
-						value: 'id:asc',
+						displayName: 'Key',
+						name: 'key',
+						type: 'string',
+						default: '',
+						description: 'Name of the label to add.',
 					},
 					{
-						name: 'id (desc)',
-						value: 'id:desc',
-					},
-					{
-						name: 'name (asc)',
-						value: 'name:asc',
-					},
-					{
-						name: 'name (desc)',
-						value: 'name:desc',
-					},
-					{
-						name: 'created (asc)',
-						value: 'created:asc',
-					},
-					{
-						name: 'created (desc)',
-						value: 'created:desc',
+						displayName: 'Value',
+						name: 'value',
+						type: 'string',
+						default: '',
+						description: 'Value of the label to add.',
 					},
 				],
-				default: '',
-				required: false,
-			},
-			{
-				displayName: 'Page',
-				name: 'page',
-				type: 'number',
-				required: false,
-				default: '1',
-				typeOptions: {
-					minValue: 1,
-					numberStepSize: 1,
-					numberPrecision: 0,
-				},
-				description: 'Page to load.',
-			},
-			{
-				displayName: 'Per Page',
-				name: 'per_page',
-				type: 'number',
-				required: false,
-				default: '25',
-				typeOptions: {
-					minValue: 1,
-					numberStepSize: 1,
-					numberPrecision: 0,
-				},
-				description: 'Items to load per page.',
 			},
 		],
+		required: false,
 		displayOptions: {
 			show: {
 				resource: ['network'],
 				operation: ['create'],
 			},
 		},
+		default: '',
+		description: 'User-defined labels (key-value pairs)',
 	},
 	{
 		displayName: 'routes',
