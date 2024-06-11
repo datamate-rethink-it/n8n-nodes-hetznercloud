@@ -1,7 +1,9 @@
 import * as list from './list';
+import * as create from './create';
+
 import type { INodeProperties } from 'n8n-workflow';
 
-export { list };
+export { list, create };
 
 export const descriptions: INodeProperties[] = [
 	{
@@ -21,8 +23,15 @@ export const descriptions: INodeProperties[] = [
 				description: 'Gets all existing networks that you have available.',
 				action: 'Get all Networks',
 			},
+			{
+				name: 'Create',
+				value: 'create',
+				description: 'Creates a new Network',
+				action: 'Create a new Network',
+			},
 		],
 		default: 'list',
 	},
 	...list.description,
+	...create.description,
 ];
