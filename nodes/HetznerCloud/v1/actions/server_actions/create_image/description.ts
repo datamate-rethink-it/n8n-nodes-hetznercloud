@@ -1,6 +1,6 @@
-import type { ImageProperties } from '../../Interfaces';
+import type { ServerActionsProperties } from '../../Interfaces';
 
-export const imageCreateDescription: ImageProperties = [
+export const imageCreateDescription: ServerActionsProperties = [
 	{
 		displayName: 'Server',
 		name: 'id',
@@ -12,8 +12,8 @@ export const imageCreateDescription: ImageProperties = [
 		},
 		displayOptions: {
 			show: {
-				resource: ['image'],
-				operation: ['create'],
+				resource: ['server_actions'],
+				operation: ['create_image'],
 			},
 		},
 		default: '',
@@ -26,8 +26,8 @@ export const imageCreateDescription: ImageProperties = [
 		required: false,
 		displayOptions: {
 			show: {
-				resource: ['image'],
-				operation: ['create'],
+				resource: ['server_actions'],
+				operation: ['create_image'],
 			},
 		},
 		default: '',
@@ -50,8 +50,8 @@ export const imageCreateDescription: ImageProperties = [
 		required: false,
 		displayOptions: {
 			show: {
-				resource: ['image'],
-				operation: ['create'],
+				resource: ['server_actions'],
+				operation: ['create_image'],
 			},
 		},
 		default: 'snapshot',

@@ -17,6 +17,6 @@ export const soft_rebootDescription: ServerActionsProperties = [
 			},
 		},
 		default: '',
-		description: 'ID of Server to shutdown',
+		description: 'ID of the Server',
 	},
 ];

@@ -17,6 +17,6 @@ export const power_onDescription: ServerActionsProperties = [
 			},
 		},
 		default: '',
-		description: 'ID of Server to soft reboot',
+		description: 'ID of the Server.',
 	},
 ];

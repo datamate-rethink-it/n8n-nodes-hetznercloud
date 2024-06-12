@@ -1,8 +1,8 @@
-import * as create from './create';
+import * as create from '../server_actions/create_image';
 import * as list from './list';
 import type { INodeProperties } from 'n8n-workflow';
 
-export { create, list };
+export { list };
 
 export const descriptions: INodeProperties[] = [
 	{
@@ -17,20 +17,14 @@ export const descriptions: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Create',
-				value: 'create',
-				description: 'Create a new image',
-				action: 'Create an image',
-			},
-			{
 				name: 'List',
 				value: 'list',
-				description: 'Get all images, snapshots, backups, ...',
-				action: 'Get all images',
+				description:
+					'Returns all Image objects. You can select specific Image types only and sort the results by using URI parameters.',
+				action: 'Get all Images',
 			},
 		],
 		default: 'create',
 	},
-	...create.description,
 	...list.description,
 ];

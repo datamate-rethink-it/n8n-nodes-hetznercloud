@@ -1,7 +1,7 @@
 import type { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
 
 type HetznerCloudMap = {
-	image: 'create' | 'list';
+	image: 'list';
 	server: 'list' | 'get' | 'metrics' | 'create' | 'remove' | 'update';
 	primary_ip: 'list';
 	floating_ip: 'list';
@@ -11,7 +11,7 @@ type HetznerCloudMap = {
 	network: 'list' | 'create';
 	ssh: 'list';
 	volume: 'list' | 'create' | 'remove' | 'get';
-	server_actions: 'power_off' | 'power_on' | 'soft_reboot' | 'shutdown' | 'reset';
+	server_actions: 'create_image' | 'power_off' | 'power_on' | 'soft_reboot' | 'shutdown' | 'reset';
 };
 
 export type HetznerCloud = AllEntities<HetznerCloudMap>;

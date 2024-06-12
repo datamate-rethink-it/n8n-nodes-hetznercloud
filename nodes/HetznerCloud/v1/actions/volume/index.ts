@@ -28,20 +28,21 @@ export const descriptions: INodeProperties[] = [
 				name: 'Create',
 				value: 'create',
 				description:
-					'Creates a new Volume attached to a Server. If you want to create a Volume that is not attached to a Server, you need to provide the location key instead of server',
-				action: 'Create a new Volume',
+					'Creates a new Volume attached to a Server. If you want to create a Volume that is not attached to a Server, you need to provide the location key instead of server ...',
+				action: 'Create a Volume',
 			},
 			{
-				name: 'Remove',
+				name: 'Delete',
 				value: 'remove',
-				description: 'removes Volume by ID',
-				action: 'remove Volume by ID',
+				description:
+					'Deletes a volume. All Volume data is irreversibly destroyed. The Volume must not be attached to a Server and it must not have delete protection enabled.',
+				action: 'Delete a Volume',
 			},
 			{
 				name: 'Get',
 				value: 'get',
-				description: 'gets Volume by ID',
-				action: 'get Volume by ID',
+				description: 'Gets a specific Volume object.',
+				action: 'Get a Volume',
 			},
 		],
 		default: 'list',

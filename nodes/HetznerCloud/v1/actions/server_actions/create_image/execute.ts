@@ -1,7 +1,7 @@
 import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-workflow';
 import { OptionsWithUri } from 'request';
 
-export async function create(
+export async function create_image(
 	this: IExecuteFunctions,
 	index: number,
 ): Promise<INodeExecutionData[]> {
@@ -19,7 +19,7 @@ export async function create(
 		json: true,
 	};
 
-	console.log(options);
+	// console.log(options);
 
 	const responseData = await this.helpers.requestWithAuthentication.call(
 		this,

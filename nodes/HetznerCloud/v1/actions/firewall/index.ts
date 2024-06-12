@@ -27,13 +27,13 @@ export const descriptions: INodeProperties[] = [
 				action: 'Get all Firewalls',
 			},
 			{
-				name: 'Create',
+				name: 'Create a Firewall',
 				value: 'create',
 				description: 'Creates a new Firewall.',
 				action: 'Create a Firewall',
 			},
 			{
-				name: 'Delete',
+				name: 'Delete a Firewall',
 				value: 'remove',
 				description: 'Deletes a Firewall.',
 				action: 'Delete a Firewall',

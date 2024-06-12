@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.0 (2024-06-12)
+
+- Adding a bunch of new endpoints
+- Many wording improvments to align with official documentation at https://docs.hetzner.cloud
+
 ## v0.0.4 (2024-02-11)
 
 - Adding new List endpoints for Load Balancers and Certificates.

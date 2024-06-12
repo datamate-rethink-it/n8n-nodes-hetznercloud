@@ -17,6 +17,6 @@ export const power_offDescription: ServerActionsProperties = [
 			},
 		},
 		default: '',
-		description: 'ID of Server to power on',
+		description: 'ID of the Server.',
 	},
 ];

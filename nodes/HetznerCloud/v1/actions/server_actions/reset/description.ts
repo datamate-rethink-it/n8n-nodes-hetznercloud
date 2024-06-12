@@ -17,6 +17,6 @@ export const resetDescription: ServerActionsProperties = [
 			},
 		},
 		default: '',
-		description: 'ID of Server to reset',
+		description: 'ID of the Server',
 	},
 ];

@@ -47,6 +47,10 @@ export const versionDescription: INodeTypeDescription = {
 					value: 'server',
 				},
 				{
+					name: 'Server Action',
+					value: 'server_actions',
+				},
+				{
 					name: 'Primary IP',
 					value: 'primary_ip',
 				},
@@ -77,10 +81,6 @@ export const versionDescription: INodeTypeDescription = {
 				{
 					name: 'Volume',
 					value: 'volume',
-				},
-				{
-					name: 'Server Actions',
-					value: 'server_actions',
 				},
 			],
 			default: 'server',

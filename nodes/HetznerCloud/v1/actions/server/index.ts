@@ -23,38 +23,41 @@ export const descriptions: INodeProperties[] = [
 			{
 				name: 'List',
 				value: 'list',
-				description: 'Get all servers from this project',
-				action: 'List all server',
+				description: 'Returns all existing Server objects.',
+				action: 'Get all Servers',
 			},
 			{
-				name: 'Get Server',
-				value: 'get',
-				description: 'Get Server Information with Server ID in this Project',
-				action: 'Get Server Information',
-			},
-			{
-				name: 'Get Server Metrics',
-				value: 'metrics',
-				description: 'Get Server Metrics (cpu,disk,io ...) with Server ID in this Project',
-				action: 'Get Server Metrics',
-			},
-			{
-				name: 'Create Server',
+				name: 'Create',
 				value: 'create',
-				description: 'Creates a new Server',
-				action: 'Create a new Server',
+				description:
+					'Creates a new Server. Returns preliminary information about the Server as well as an Action that covers progress of creation.',
+				action: 'Create a Server',
 			},
 			{
-				name: 'Delete Server',
+				name: 'Delete',
 				value: 'remove',
-				description: 'Deletes a Server with given ID',
-				action: 'Delete a Server with given ID',
+				description:
+					'Deletes a Server. This immediately removes the Server from your account, and it is no longer accessible. Any resources attached to the server (like Volumes, Primary IPs, Floating IPs, Firewalls, Placement Groups) are detached while the server is deleted.',
+				action: 'Delete a Server',
 			},
 			{
-				name: 'Update Server',
+				name: 'Get',
+				value: 'get',
+				description: 'Returns a specific Server object. The Server must exist inside the Project.',
+				action: 'Get a Server',
+			},
+			{
+				name: 'Update',
 				value: 'update',
-				description: 'Updates a Servers Labels and Name',
+				description: 'Updates a Server. You can update a Server’s name and a Server’s labels.',
 				action: 'Update a Server',
+			},
+			{
+				name: 'Get Metrics',
+				value: 'metrics',
+				description:
+					'Get Metrics for specified Server. You must specify the type of metric to get: cpu, disk or network. You can also specify more than one type by comma separation, e.g. cpu,disk.',
+				action: 'Get Metrics for a Server',
 			},
 		],
 		default: 'list',
