@@ -1,4 +1,3 @@
-import * as create from '../server_actions/create_image';
 import * as list from './list';
 import type { INodeProperties } from 'n8n-workflow';
 
