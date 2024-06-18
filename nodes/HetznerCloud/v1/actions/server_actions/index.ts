@@ -5,8 +5,9 @@ import * as power_on from './power_on';
 import * as soft_reboot from './soft_reboot';
 import * as shutdown from './shutdown';
 import * as reset from './reset';
+import * as change_server_type from './change_server_type';
 
-export { create_image, power_off, power_on, soft_reboot, shutdown, reset };
+export { create_image, power_off, power_on, soft_reboot, shutdown, reset, change_server_type };
 
 export const descriptions: INodeProperties[] = [
 	{
@@ -61,6 +62,13 @@ export const descriptions: INodeProperties[] = [
 					'Cuts power to a Server and starts it again. This forcefully stops it without giving the Server operating system time to gracefully stop. This may lead to data loss, it’s equivalent to pulling the power cord and plugging it in again. Reset should only be used when reboot does not work.',
 				action: 'Reset a Server',
 			},
+			{
+				name: 'Change Server-type',
+				value: 'change_server_type',
+				description:
+					'Changes the type (Cores, RAM and disk sizes) of a Server, Server must be powered off for this command to succeed.',
+				action: 'Change a Servers Server-type',
+			},
 		],
 		default: 'power_off',
 	},
@@ -70,4 +78,5 @@ export const descriptions: INodeProperties[] = [
 	...soft_reboot.description,
 	...shutdown.description,
 	...reset.description,
+	...change_server_type.description,
 ];
