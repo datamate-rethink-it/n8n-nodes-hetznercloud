@@ -8,5 +8,11 @@ export const removeDescription: networkProperties = [
 		required: true,
 		default: '',
 		description: 'ID of the Network, that should be removed',
+		displayOptions: {
+			show: {
+				resource: ['network'],
+				operation: ['remove'],
+			},
+		},
 	},
 ];

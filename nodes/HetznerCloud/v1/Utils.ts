@@ -17,6 +17,7 @@ export function createDynamicObject(objects: { key: string; value: any }[]): {
 		dynamicObject[e.key] = e.value;
 	}
 	return dynamicObject;
+	//"test"
 }
 
 /* 
