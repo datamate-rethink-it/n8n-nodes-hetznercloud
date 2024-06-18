@@ -2,10 +2,11 @@ import * as list from './list';
 import * as get from './get';
 import * as remove from './remove';
 import * as update from './update';
+import * as create from './create';
 
 import type { INodeProperties } from 'n8n-workflow';
 
-export { list, get, remove, update };
+export { list, get, remove, update, create };
 
 export const descriptions: INodeProperties[] = [
 	{
@@ -43,6 +44,13 @@ export const descriptions: INodeProperties[] = [
 				description: 'Updates SSH key by ID',
 				action: 'Update SSH key by ID ',
 			},
+			{
+				name: 'Create',
+				value: 'create',
+				description:
+					'Creates a new SSH key with the given name and public_key . Once an SSH key is created, it can be used in other calls such as creating Servers.',
+				action: 'Create a new SSH key with name and Public-Key ',
+			},
 		],
 		default: 'list',
 	},
@@ -50,4 +58,5 @@ export const descriptions: INodeProperties[] = [
 	...get.description,
 	...remove.description,
 	...update.description,
+	...create.description,
 ];
