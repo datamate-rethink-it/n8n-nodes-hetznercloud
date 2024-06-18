@@ -1,10 +1,11 @@
 import * as list from './list';
 import * as remove from './remove';
 import * as get from './get';
+import * as update from './update';
 
 import type { INodeProperties } from 'n8n-workflow';
 
-export { list, remove, get };
+export { list, remove, get, update };
 export const descriptions: INodeProperties[] = [
 	{
 		displayName: 'Operation',
@@ -34,7 +35,13 @@ export const descriptions: INodeProperties[] = [
 				name: 'Get',
 				value: 'get',
 				description: 'Gets an Image by ID',
-				action: 'get Image by ID',
+				action: 'Get Image by ID',
+			},
+			{
+				name: 'Update',
+				value: 'update',
+				description: 'Updates an Image by ID',
+				action: 'Update an Image by ID',
 			},
 		],
 		default: 'list',
@@ -42,4 +49,5 @@ export const descriptions: INodeProperties[] = [
 	...list.description,
 	...remove.description,
 	...get.description,
+	...update.description,
 ];
