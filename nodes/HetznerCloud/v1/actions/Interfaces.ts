@@ -6,7 +6,7 @@ type HetznerCloudMap = {
 	primary_ip: 'list';
 	floating_ip: 'list';
 	firewall: 'list' | 'create' | 'remove' | 'update' | 'get';
-	certificate: 'list';
+	certificate: 'list' | 'get' | 'create';
 	loadbalancer: 'list';
 	network: 'list' | 'create' | 'remove' | 'update' | 'get';
 	ssh: 'list' | 'get' | 'remove' | 'update' | 'create';

@@ -76,7 +76,7 @@ export const updateDescription: ImageProperties = [
 		placeholder: '',
 		required: false,
 		default: '',
-		description: 'Allowed: snapshot, Image type to convert to',
+		description: 'Allowed: "snapshot"',
 		displayOptions: {
 			show: {
 				resource: ['image'],
