@@ -9,7 +9,7 @@ type HetznerCloudMap = {
 	certificate: 'list';
 	loadbalancer: 'list';
 	network: 'list' | 'create' | 'remove';
-	ssh: 'list' | 'get' | 'remove';
+	ssh: 'list' | 'get' | 'remove' | 'update';
 	volume: 'list' | 'create' | 'remove' | 'get';
 	server_actions: 'create_image' | 'power_off' | 'power_on' | 'soft_reboot' | 'shutdown' | 'reset';
 };
