@@ -8,7 +8,7 @@ type HetznerCloudMap = {
 	firewall: 'list' | 'create' | 'remove' | 'update' | 'get';
 	certificate: 'list';
 	loadbalancer: 'list';
-	network: 'list' | 'create' | 'remove';
+	network: 'list' | 'create' | 'remove' | 'update' | 'get';
 	ssh: 'list' | 'get' | 'remove' | 'update' | 'create';
 	volume: 'list' | 'create' | 'remove' | 'get';
 	server_actions:
